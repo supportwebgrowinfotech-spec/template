@@ -1,324 +1,783 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 <meta name="theme-color" content="#073b91"/>
 <title>Grand 151st Meeting | Personalize Your Invitation</title>
-<style>:root{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#142649;background:#f3f6fc}
-*{box-sizing:border-box}
-body{margin:0}
-button,input{font:inherit}
-button{cursor:pointer}
-header{background:#fff;border-bottom:1px solid #e3e9f2}
-.top{max-width:1390px;margin:auto;padding:17px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.brand{display:flex;align-items:center;gap:13px}
-.symbol{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,#006d47,#074ca6);display:grid;place-items:center;color:white;font-weight:900;font-size:21px}
-.brand strong{font-size:16px;display:block}
-.brand span{font-size:12px;color:#77859d}
-.pill{font-size:12px;font-weight:700;background:#e5f7ee;color:#05764d;padding:9px 12px;border-radius:50px}
-.wrap{max-width:1390px;margin:0 auto;padding:32px 26px 55px}
-.hero{text-align:center;margin-bottom:26px}
-.hero h1{font-size:clamp(25px,3.5vw,39px);letter-spacing:-1.3px;margin:0 0 8px;color:#092f79}
-.hero p{color:#697994;margin:0;font-size:15px}
-.layout{display:grid;grid-template-columns:minmax(335px,450px) minmax(0,1fr);gap:23px;align-items:start}
-.panel,.preview-panel{background:#fff;border:1px solid #e3eaf4;border-radius:20px;box-shadow:0 12px 42px rgba(18,48,94,.055)}
-.panel{padding:24px;display:grid;gap:20px}
-.stephead{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-weight:750;font-size:16px;color:#113779}
-.step{height:28px;width:28px;border-radius:50%;background:#0c439f;color:white;display:grid;place-items:center;font-size:13px;flex:none}
-.drop{border:2px dashed #c4d6f3;border-radius:13px;background:#f8faff;min-height:140px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:16px;text-align:center;gap:8px;transition:.18s;cursor:pointer}
-.drop:hover,.drop.drag{background:#edf5ff;border-color:#0e66bb}
-.drop svg{color:#174da7}
-.drop strong{color:#123e8b}
-.drop small{color:#74829b;font-size:12px}
-.preview-thumb{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #e1eaf8}
-.input-label{display:block;font-weight:700;font-size:13px;color:#405777;margin-bottom:9px}
-input[type=text]{width:100%;border:1px solid #cdd9ec;border-radius:10px;padding:14px;outline:none;background:white;font-size:15px;color:#152e5d}
-input[type=text]:focus{border-color:#0d58b8;box-shadow:0 0 0 4px #dceafd}
-.tools{display:none;background:#f6f9fe;padding:14px;border-radius:12px;border:1px solid #e2eafa}
-.tools.show{display:block}
-.controlrow{display:flex;justify-content:space-between;font-size:13px;font-weight:650;margin-bottom:9px}
-.range{width:100%;accent-color:#0a4ca4}
-.muted{color:#7a8ca5;font-size:12px;line-height:1.5}
-.toolbuttons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-.toolbuttons button{padding:9px 4px;font-size:12px;display:flex;justify-content:center;align-items:center}
-.toolbuttons .reset-btn{grid-column:1/-1;padding:9px}
-.actions{display:grid;gap:10px}
-button.primary{width:100%;border:0;border-radius:11px;background:linear-gradient(90deg,#0a3994,#1262b9);color:white;font-weight:760;font-size:15px;padding:15px;display:flex;justify-content:center;align-items:center;gap:10px;box-shadow:0 8px 18px #0a47951b}
-button.primary:disabled{background:#cbd6e5;box-shadow:none;color:#8a9ab1;cursor:not-allowed}
-button.secondary{border:1px solid #cbd9ed;border-radius:10px;background:white;color:#114791;font-weight:700;padding:11px}
-.preview-panel{padding:21px;background:linear-gradient(#f7f9ff,#fff)}
-.preview-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}
-.preview-head h2{margin:0;font-size:17px;color:#0a327f}
-.live{font-size:12px;color:#13814d;background:#e9f8ee;padding:6px 10px;border-radius:99px;font-weight:650}
-.preview-box{background:#e5eaf2;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:20px;min-height:300px;overflow:hidden}
-.preview-box canvas{display:block;width:min(100%,525px);height:auto;box-shadow:0 14px 35px #0f326233;border-radius:4px;touch-action:none;cursor:grab}
-.preview-box canvas:active{cursor:grabbing}
-.footnote{text-align:center;color:#7d8aa2;font-size:12px;margin-top:14px}
-.hint{font-size:12px;color:#61718d;margin-top:8px;text-align:center}
-.note{font-size:12px;color:#6b7d94;line-height:1.7;margin:0}
-.alert{padding:11px 12px;background:#fff3e5;color:#8a5300;border-radius:9px;font-size:12px;display:none}
-.alert.show{display:block}
+<style>
+:root {
+  --primary: #0a3d8f;
+  --primary-gradient: linear-gradient(90deg, #093c8b, #0e5dbb);
+  --navy-frame: #0b1d3a;
+  --bg-page: #f1f4fa;
+  --card-bg: #ffffff;
+  --border-light: #e0e8f3;
+  --text-dark: #12264a;
+  --text-muted: #6b7c96;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-page);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg-page);
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
 
-/* MOBILE ONE-SCREEN RESPONSIVE LAYOUT */
-@media (max-width: 850px) {
-  html, body {
-    height: 100%;
-    height: 100dvh;
-    overflow: hidden;
-    background: #edf1f8;
+/* --------------------------------------------------------- */
+/* TOP HEADER NAVIGATION                                     */
+/* --------------------------------------------------------- */
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.top {
+  max-width: 1390px;
+  margin: auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.symbol {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #006d47, #074ca6);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+.brand strong { font-size: 16px; display: block; color: #0a2f77; line-height: 1.2; }
+.brand span { font-size: 12px; color: var(--text-muted); }
+.pill {
+  font-size: 12px;
+  font-weight: 700;
+  background: #e5f7ee;
+  color: #05764d;
+  padding: 7px 13px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------- */
+/* MAIN PAGE WRAPPER                                         */
+/* --------------------------------------------------------- */
+.wrap {
+  max-width: 1390px;
+  margin: 0 auto;
+  padding: 26px 24px 50px;
+  width: 100%;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: -0.8px;
+  margin: 0 0 6px;
+  color: #082d73;
+}
+.hero p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------- */
+/* RESPONSIVE LAYOUT SYSTEM                                  */
+/* --------------------------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(350px, 440px) minmax(0, 1fr);
+  grid-template-areas:
+    "upload preview"
+    "name   preview"
+    "action preview";
+  gap: 22px;
+  align-items: start;
+}
+.step-upload  { grid-area: upload; }
+.step-name    { grid-area: name; }
+.actions-wrap { grid-area: action; }
+.preview-col  { 
+  grid-area: preview; 
+  position: sticky;
+  top: 80px;
+}
+
+/* Card Styling */
+.card-box {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(18, 48, 94, 0.04);
+  padding: 18px 20px;
+  width: 100%;
+}
+.stephead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 750;
+  font-size: 15px;
+  color: var(--primary);
+}
+.step {
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex: none;
+}
+
+/* Upload Choose Button & Drop Area */
+.choose-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #d9e4f2;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0b51a8;
+  font-weight: 650;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+.choose-btn:hover {
+  background: #f4f8fe;
+  border-color: #0b51a8;
+}
+.choose-btn svg {
+  color: #0b51a8;
+  flex-shrink: 0;
+}
+.drop-desktop-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Photo Tools */
+.tools {
+  display: none;
+  background: #f5f8fd;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e1eaf5;
+  margin-top: 12px;
+}
+.tools.show { display: block; }
+.controlrow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 650;
+  margin-bottom: 6px;
+  color: #103269;
+}
+.range {
+  width: 100%;
+  accent-color: var(--primary);
+  margin: 4px 0 8px;
+}
+.toolbuttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+.toolbuttons button {
+  padding: 7px 4px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toolbuttons .reset-btn {
+  grid-column: 1 / -1;
+  padding: 8px;
+}
+
+/* Name Input */
+.input-label {
+  display: block;
+  font-weight: 650;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+}
+input[type=text] {
+  width: 100%;
+  border: 1.5px solid #dce5f2;
+  border-radius: 9px;
+  padding: 12px 14px;
+  outline: none;
+  background: white;
+  font-size: 14px;
+  color: #12284c;
+  font-weight: 500;
+  transition: border-color 0.18s;
+}
+input[type=text]::placeholder {
+  color: #8c9cb3;
+}
+input[type=text]:focus {
+  border-color: #0d58b8;
+  box-shadow: 0 0 0 3px #dceafd;
+}
+
+/* Preview Panel */
+.preview-panel {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(18, 48, 94, 0.05);
+  padding: 18px 20px;
+}
+.preview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.preview-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  color: #0a3177;
+}
+.live-badge {
+  font-size: 11px;
+  color: #12824e;
+  background: #e9f8ee;
+  padding: 5px 9px;
+  border-radius: 99px;
+  font-weight: 700;
+}
+.preview-box {
+  background: #e5ebf4;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow: hidden;
+}
+.preview-box canvas {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  aspect-ratio: 1122 / 1402;
+  box-shadow: 0 10px 32px rgba(12, 35, 75, 0.2);
+  border-radius: 6px;
+  touch-action: none;
+  cursor: grab;
+}
+.preview-box canvas:active { cursor: grabbing; }
+.hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Actions Card & Buttons */
+.actions-card {
+  display: grid;
+  gap: 9px;
+  width: 100%;
+}
+button.primary {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(10, 57, 148, 0.22);
+  transition: opacity 0.2s;
+}
+button.primary:hover:not(:disabled) {
+  opacity: 0.95;
+}
+button.primary:disabled {
+  background: #d6e0ec;
+  box-shadow: none;
+  color: #9bb0c9;
+  cursor: not-allowed;
+}
+button.secondary {
+  border: 1px solid #cbd9ed;
+  border-radius: 9px;
+  background: white;
+  color: #114791;
+  font-weight: 650;
+  font-size: 13px;
+  padding: 10px;
+}
+.footnote {
+  text-align: center;
+  color: #7d8aa2;
+  font-size: 12px;
+  margin-top: 24px;
+}
+.alert {
+  padding: 10px 12px;
+  background: #fff3e5;
+  color: #8a5300;
+  border-radius: 9px;
+  font-size: 12px;
+  display: none;
+  margin-bottom: 8px;
+}
+.alert.show { display: block; }
+
+/* --------------------------------------------------------- */
+/* TABLET RESPONSIVE (768px to 1024px)                       */
+/* --------------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wrap {
+    padding: 20px 16px 40px;
   }
-  body {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    width: 100vw;
+  .layout {
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 16px;
   }
+  .preview-panel {
+    padding: 14px;
+  }
+  .preview-box {
+    padding: 10px;
+  }
+}
+
+/* --------------------------------------------------------- */
+/* MOBILE RESPONSIVE (<= 768px): MATCHES USER REFERENCE      */
+/* --------------------------------------------------------- */
+@media (max-width: 768px) {
   header {
-    flex: 0 0 auto;
-    background: #fff;
-    border-bottom: 1px solid #e3e9f2;
-    width: 100%;
+    padding: 0;
   }
   .top {
-    padding: 7px 14px;
-    gap: 8px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .brand {
-    gap: 8px;
+    padding: 10px 16px;
   }
   .symbol {
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-    border-radius: 7px;
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    border-radius: 8px;
   }
   .brand strong {
-    font-size: 13px;
-    line-height: 1.2;
+    font-size: 14px;
   }
   .brand span {
-    display: none;
+    font-size: 11px;
   }
   .pill {
-    font-size: 10px;
-    padding: 4px 8px;
+    display: none;
   }
   .hero {
     display: none;
   }
-  .footnote {
-    display: none;
+  .footnote, .drop-desktop-hint, .input-label, .live-badge, .hint {
+    display: none !important;
   }
   .wrap {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    padding: 6px 12px 10px;
-    margin: 0;
+    padding: 12px 14px 28px;
+    max-width: 540px;
+    margin: 0 auto;
     width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    gap: 6px;
-    min-height: 0;
-    box-sizing: border-box;
   }
+  /* Mobile Single-Column Order */
   .layout {
-    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    overflow: hidden;
-    min-height: 0;
-    height: 100%;
+    gap: 12px;
     width: 100%;
   }
+  .step-upload  { order: 1; }
+  .step-name    { order: 2; }
+  .preview-col  { 
+    order: 3; 
+    position: static;
+  }
+  .actions-wrap { order: 4; }
+
+  /* Mobile Cards */
+  .card-box {
+    border-radius: 12px;
+    padding: 13px 14px;
+    border: 1px solid #e2eaf4;
+    box-shadow: 0 2px 10px rgba(12, 35, 75, 0.04);
+  }
+  .stephead {
+    font-size: 14.5px;
+    font-weight: 750;
+    margin-bottom: 10px;
+    gap: 9px;
+    color: #0b3c8a;
+  }
+  .step {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    background: #0b3c8a;
+  }
+  .choose-btn {
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #d8e3f2;
+    font-size: 14px;
+    font-weight: 650;
+    color: #0b54ad;
+  }
+  input[type=text] {
+    padding: 11px 13px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1.5px solid #d9e3f1;
+  }
+
+  /* Mobile Poster Preview Section */
   .preview-panel {
-    order: 1;
-    flex: 0 0 auto;
-    padding: 0;
     background: transparent;
     border: none;
     box-shadow: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 0;
-    width: 100%;
-  }
-  .preview-head, .hint {
-    display: none;
-  }
-  .preview-box {
     padding: 0;
-    background: transparent;
-    border-radius: 0;
-    min-height: 0;
-    max-height: 34vh;
-    max-height: 34dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    margin-top: 2px;
+  }
+  .preview-head {
+    margin-bottom: 8px;
+  }
+  .preview-title {
+    font-size: 15.5px;
+    font-weight: 750;
+    color: #0a3075;
+    letter-spacing: -0.2px;
+  }
+  /* Mobile Dark Navy Poster Frame */
+  .preview-box {
+    background: #0c1f40;
+    border-radius: 12px;
+    padding: 7px;
+    box-shadow: 0 6px 22px rgba(10, 30, 65, 0.15);
   }
   .preview-box canvas {
-    max-height: 34vh;
-    max-height: 34dvh;
-    width: auto;
-    max-width: 100%;
-    aspect-ratio: 1122 / 1402;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
     border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(15, 50, 98, 0.16);
-    margin: 0 auto;
+    box-shadow: none;
+    display: block;
   }
-  .panel {
-    order: 2;
-    flex: 1 1 auto;
-    padding: 8px 12px;
-    gap: 6px;
-    border-radius: 14px;
-    background: #fff;
-    border: 1px solid #e1e9f4;
-    box-shadow: 0 4px 16px rgba(18, 48, 94, 0.05);
-    overflow-y: auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .stephead {
-    font-size: 12px;
-    margin-bottom: 4px;
-    gap: 6px;
-  }
-  .step {
-    width: 19px;
-    height: 19px;
-    font-size: 10px;
-  }
-  .drop {
-    min-height: 38px;
-    padding: 6px 12px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+  /* Mobile Download Action Button */
+  .actions-card {
+    margin-top: 2px;
     gap: 8px;
-    border-radius: 8px;
-  }
-  .drop svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
-  .drop strong {
-    font-size: 12px;
-  }
-  .drop small {
-    display: none;
-  }
-  .note {
-    display: none;
-  }
-  .tools {
-    padding: 6px 8px;
-    border-radius: 8px;
-    margin: 0;
-  }
-  .controlrow {
-    font-size: 11px;
-    margin-bottom: 2px;
-  }
-  .range {
-    height: 16px;
-    margin: 2px 0 3px;
-  }
-  .toolbuttons {
-    gap: 5px;
-    margin-top: 3px;
-  }
-  .toolbuttons button {
-    padding: 6px 3px;
-    font-size: 11px;
-  }
-  .toolbuttons .reset-btn {
-    padding: 5px;
-    font-size: 11px;
-  }
-  .muted {
-    display: none;
-  }
-  .input-label {
-    font-size: 11px;
-    margin-bottom: 3px;
-  }
-  input[type=text] {
-    padding: 8px 10px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-  .actions {
-    gap: 6px;
-    display: flex;
-    flex-direction: row;
-    margin-top: auto;
   }
   button.primary {
-    padding: 10px;
-    font-size: 12px;
-    border-radius: 8px;
-    flex: 2;
-    white-space: nowrap;
+    padding: 13px 16px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 700;
   }
   button.secondary {
     padding: 10px;
-    font-size: 12px;
     border-radius: 8px;
-    flex: 1;
-    white-space: nowrap;
-  }
-  .actions button span {
-    display: none;
-  }
-}
-@media (max-width: 380px) {
-  .pill {
-    display: none;
+    font-size: 12px;
   }
 }
 </style>
 </head>
 <body>
-<header><div class="top"><div class="brand"><div class="symbol">151</div><div><strong>Grand Meeting Poster</strong><span>Personalized visitor invitation</span></div></div><div class="pill">● Instant poster creator</div></div></header>
-<main class="wrap"><div class="hero"><h1>Create Your Personalized Invitation</h1><p>Add your photograph and name to the official Grand 151st Meeting poster.</p></div>
-<div class="layout"><section class="panel" aria-label="Personalize your poster"><div><div class="stephead"><span class="step">1</span> Upload your photograph</div><label class="drop" id="drop" for="photo"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m-5 5 5-5 5 5M4 16v4h16v-4"/></svg><strong id="uploadText">Click to browse or drag & drop</strong><small>JPG, PNG, WebP · Max 15 MB</small></label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden/><p class="note" style="margin-top:10px">For best results, use a clear, front-facing portrait.</p></div>
-<div id="editTools" class="tools"><div class="controlrow"><span>Adjust photo zoom</span><output id="zoomValue">100%</output></div><input class="range" id="zoom" type="range" min="100" max="300" value="100" step="1"/><div class="toolbuttons"><button id="left" class="secondary" type="button" title="Move photo left">← Left</button><button id="right" class="secondary" type="button" title="Move photo right">→ Right</button><button id="up" class="secondary" type="button" title="Move photo up">↑ Up</button><button id="down" class="secondary" type="button" title="Move photo down">↓ Down</button><button id="reset" class="secondary reset-btn" type="button" title="Reset photo position & zoom">↺ Reset photo</button></div><p class="muted">Drag the photo inside the preview to position your face. You can also use mouse wheel zoom.</p></div>
-<div><div class="stephead"><span class="step">2</span> Enter your name / તમારું નામ</div><label class="input-label" for="name">Name to appear on the invitation</label><input id="name" type="text" maxlength="60" placeholder="e.g. Hevik Kakadiya / હેવિક કાકડિયા" autocomplete="name"/><p class="note" style="margin-top:8px">Your name automatically appears inside the green-bordered box.</p></div>
-<div class="actions"><div class="alert" id="alert"></div><button id="download" class="primary" disabled type="button"><span>↓</span> Download Poster (PNG)</button><button id="jpg" class="secondary" disabled type="button">Download as JPG</button><p class="note" style="text-align:center">Your photo stays on your device. No login or upload to a server is required.</p></div></section>
-<section class="preview-panel"><div class="preview-head"><h2>Live Poster Preview</h2><span class="live">● Real-time</span></div><div class="preview-box"><canvas id="poster" width="1122" height="1402" aria-label="Personalized meeting poster preview"></canvas></div><div class="hint">Full-resolution output: 1122 × 1402 pixels</div></section></div><div class="footnote">Designed for Grand 151st Meeting Celebration · 27 October 2026</div></main>
+
+<header>
+  <div class="top">
+    <div class="brand">
+      <div class="symbol">151</div>
+      <div>
+        <strong>Grand Meeting Poster</strong>
+        <span>Personalized visitor invitation</span>
+      </div>
+    </div>
+    <div class="pill">✓ Instant poster creator</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Create Your Personalized Invitation</h1>
+    <p>Add your photograph and name to the official Grand 151st Meeting poster.</p>
+  </div>
+
+  <div class="layout">
+    
+    <!-- Step 1: Upload Photograph -->
+    <section class="card-box step-upload" aria-label="Step 1 Upload Photograph">
+      <div class="stephead">
+        <span class="step">1</span>
+        <span>Upload Photograph</span>
+      </div>
+      <label class="choose-btn" id="drop" for="photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+        <span id="uploadText">Choose Photo</span>
+      </label>
+      <input id="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden/>
+      <div class="drop-desktop-hint">JPG, PNG or WebP • Max 15 MB (or drag and drop photo)</div>
+      
+      <!-- Photo adjustment tools -->
+      <div id="editTools" class="tools">
+        <div class="controlrow">
+          <span>Adjust photo zoom</span>
+          <output id="zoomValue">100%</output>
+        </div>
+        <input class="range" id="zoom" type="range" min="100" max="300" value="100" step="1"/>
+        <div class="toolbuttons">
+          <button id="left" class="secondary" type="button" title="Move photo left">← Left</button>
+          <button id="right" class="secondary" type="button" title="Move photo right">→ Right</button>
+          <button id="up" class="secondary" type="button" title="Move photo up">↑ Up</button>
+          <button id="down" class="secondary" type="button" title="Move photo down">↓ Down</button>
+          <button id="reset" class="secondary reset-btn" type="button" title="Reset photo position and zoom">↺ Reset photo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Enter Name -->
+    <section class="card-box step-name" aria-label="Step 2 Enter Name">
+      <div class="stephead">
+        <span class="step">2</span>
+        <span>Enter your name / તમારું નામ</span>
+      </div>
+      <label class="input-label" for="name">Name to appear on the invitation</label>
+      <input id="name" type="text" maxlength="60" placeholder="e.g. Hevik Kakadiya / હેવિક કાકડિયા" autocomplete="name"/>
+    </section>
+
+    <!-- Poster Preview Column -->
+    <section class="preview-panel preview-col" aria-label="Poster Preview">
+      <div class="preview-head">
+        <h2 class="preview-title">Poster Preview</h2>
+        <span class="live-badge">● Real-time</span>
+      </div>
+      <div class="preview-box">
+        <canvas id="poster" width="1122" height="1402" aria-label="Personalized meeting poster preview"></canvas>
+      </div>
+      <div class="hint">Full-resolution output: 1122 × 1402 pixels</div>
+    </section>
+
+    <!-- Actions Container (Desktop Left Col / Mobile Bottom) -->
+    <section class="actions-card actions-wrap" aria-label="Download Actions">
+      <div class="alert" id="alert"></div>
+      <button id="download" class="primary" disabled type="button">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span>Download Poster</span>
+      </button>
+      <button id="jpg" class="secondary" disabled type="button" style="display:none">Download as JPG</button>
+    </section>
+
+  </div>
+
+  <div class="footnote">Designed for Grand 151st Meeting Celebration • 27 October 2026</div>
+</main>
+
 <script>
 (()=>{'use strict';
 const W=1122,H=1402,canvas=document.getElementById('poster'),ctx=canvas.getContext('2d'),photoInput=document.getElementById('photo'),nameInput=document.getElementById('name'),zoom=document.getElementById('zoom'),zoomValue=document.getElementById('zoomValue'),download=document.getElementById('download'),jpg=document.getElementById('jpg'),tools=document.getElementById('editTools'),alertBox=document.getElementById('alert');
 const bg=new Image();bg.src='template.jpg';let face=null,faceUrl=null,scale=1,offsetX=0,offsetY=0,dragging=false,dragPoint=null,fontReady=false;
 const circle={cx:856,cy:703,r:201};
 function alertUser(s){alertBox.textContent=s;alertBox.classList.add('show');setTimeout(()=>alertBox.classList.remove('show'),4500)}
-function draw(){ctx.clearRect(0,0,W,H);if(bg.complete&&bg.naturalWidth)ctx.drawImage(bg,0,0,W,H);else{ctx.fillStyle='#f6f8fe';ctx.fillRect(0,0,W,H)}
-// Fully cover old portrait beneath the replaceable, clipped circular photo.
-ctx.save();ctx.beginPath();ctx.arc(circle.cx,circle.cy,circle.r,0,Math.PI*2);ctx.clip();ctx.fillStyle='#171e30';ctx.fillRect(circle.cx-circle.r,circle.cy-circle.r,circle.r*2,circle.r*2);
-if(face){const iw=face.naturalWidth,ih=face.naturalHeight,s=Math.max(circle.r*2/iw,circle.r*2/ih)*scale,dw=iw*s,dh=ih*s;ctx.drawImage(face,circle.cx-dw/2+offsetX,circle.cy-dh/2+offsetY,dw,dh)}ctx.restore();
-// Repaint outline for a consistently clean edge.
-ctx.beginPath();ctx.beginPath();ctx.arc(circle.cx,circle.cy,206,0,Math.PI*2);ctx.strokeStyle='#ffffff';ctx.lineWidth=5;ctx.stroke();ctx.beginPath();ctx.arc(circle.cx,circle.cy,211,0,Math.PI*2);ctx.strokeStyle='#0750a2';ctx.lineWidth=5;ctx.stroke();
-// White interior of existing green-border nameplate.
-ctx.fillStyle='#fff';ctx.fillRect(655,952,400,56);
-const str=nameInput.value.trim();if(str){ctx.fillStyle='#103586';ctx.textAlign='center';ctx.textBaseline='middle';let size=36;ctx.font=`700 ${size}px "Noto Sans Gujarati", "Nirmala UI", system-ui, Arial, sans-serif`;while(ctx.measureText(str).width>375&&size>17){size--;ctx.font=`700 ${size}px "Noto Sans Gujarati", "Nirmala UI", system-ui, Arial, sans-serif`;}ctx.fillText(str,856,980)} }
-function ready(){const ok=!!face&&!!nameInput.value.trim()&&bg.complete&&bg.naturalWidth>0;download.disabled=!ok;jpg.disabled=!ok}
-function loadFile(file){if(!file)return;if(!['image/jpeg','image/png','image/webp'].includes(file.type)){alertUser('Please choose JPG, PNG, or WebP image.');return}if(file.size>15*1024*1024){alertUser('Image exceeds 15 MB. Please choose a smaller photo.');return}const url=URL.createObjectURL(file);const img=new Image();img.onload=()=>{if(faceUrl)URL.revokeObjectURL(faceUrl);faceUrl=url;face=img;scale=1;offsetX=offsetY=0;zoom.value='100';zoomValue.textContent='100%';tools.classList.add('show');document.getElementById('uploadText').textContent='Photo selected — click to replace';draw();ready()};img.onerror=()=>{URL.revokeObjectURL(url);alertUser('Unable to read this image. Try another file.')};img.src=url}
-photoInput.addEventListener('change',e=>loadFile(e.target.files?.[0]));nameInput.addEventListener('input',()=>{draw();ready()});zoom.addEventListener('input',()=>{scale=Number(zoom.value)/100;zoomValue.textContent=zoom.value+'%';draw()});
-document.getElementById('reset').onclick=()=>{scale=1;offsetX=offsetY=0;zoom.value=100;zoomValue.textContent='100%';draw()};document.getElementById('left').onclick=()=>{offsetX-=15;draw()};document.getElementById('right').onclick=()=>{offsetX+=15;draw()};document.getElementById('up').onclick=()=>{offsetY-=15;draw()};document.getElementById('down').onclick=()=>{offsetY+=15;draw()};
-const drop=document.getElementById('drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>loadFile(e.dataTransfer.files?.[0]));
-function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height}}canvas.addEventListener('pointerdown',e=>{if(!face)return;const p=point(e);if(Math.hypot(p.x-circle.cx,p.y-circle.cy)>circle.r)return;dragging=true;dragPoint=p;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!dragging)return;const p=point(e);offsetX+=p.x-dragPoint.x;offsetY+=p.y-dragPoint.y;dragPoint=p;draw()});['pointerup','pointercancel','lostpointercapture'].forEach(ev=>canvas.addEventListener(ev,()=>dragging=false));canvas.addEventListener('wheel',e=>{if(!face)return;e.preventDefault();const n=Math.max(100,Math.min(300,Number(zoom.value)+(e.deltaY<0?5:-5)));zoom.value=n;scale=n/100;zoomValue.textContent=n+'%';draw()},{passive:false});
-function save(type){if(!face||!nameInput.value.trim()){alertUser('Please upload a photograph and enter your name.');return}draw();const mime=type==='jpg'?'image/jpeg':'image/png';canvas.toBlob(blob=>{if(!blob){alertUser('Could not generate the poster.');return}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Grand-151-Meeting-'+nameInput.value.trim().replace(/[^\p{L}\p{N}-]+/gu,'-').slice(0,40)+'.'+(type==='jpg'?'jpg':'png');document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)},mime,type==='jpg'?.95:undefined)}download.onclick=()=>save('png');jpg.onclick=()=>save('jpg');bg.onload=()=>{draw();ready()};bg.onerror=()=>alertUser('Missing template.jpg. Please keep index.html and template.jpg in the same folder.');draw();document.fonts?.ready?.then(()=>{fontReady=true;draw()});
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  if(bg.complete&&bg.naturalWidth)ctx.drawImage(bg,0,0,W,H);
+  else{ctx.fillStyle='#f6f8fe';ctx.fillRect(0,0,W,H)}
+  // Circular photo clipping
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(circle.cx,circle.cy,circle.r,0,Math.PI*2);
+  ctx.clip();
+  ctx.fillStyle='#171e30';
+  ctx.fillRect(circle.cx-circle.r,circle.cy-circle.r,circle.r*2,circle.r*2);
+  if(face){
+    const iw=face.naturalWidth,ih=face.naturalHeight,s=Math.max(circle.r*2/iw,circle.r*2/ih)*scale,dw=iw*s,dh=ih*s;
+    ctx.drawImage(face,circle.cx-dw/2+offsetX,circle.cy-dh/2+offsetY,dw,dh);
+  }
+  ctx.restore();
+  // Outer rings
+  ctx.beginPath();
+  ctx.arc(circle.cx,circle.cy,206,0,Math.PI*2);
+  ctx.strokeStyle='#ffffff';
+  ctx.lineWidth=5;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(circle.cx,circle.cy,211,0,Math.PI*2);
+  ctx.strokeStyle='#0750a2';
+  ctx.lineWidth=5;
+  ctx.stroke();
+  // Nameplate white interior
+  ctx.fillStyle='#fff';
+  ctx.fillRect(655,952,400,56);
+  const str=nameInput.value.trim();
+  if(str){
+    ctx.fillStyle='#103586';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    let size=36;
+    ctx.font=`700 ${size}px "Noto Sans Gujarati", "Nirmala UI", system-ui, Arial, sans-serif`;
+    while(ctx.measureText(str).width>375&&size>17){
+      size--;
+      ctx.font=`700 ${size}px "Noto Sans Gujarati", "Nirmala UI", system-ui, Arial, sans-serif`;
+    }
+    ctx.fillText(str,856,980);
+  }
+}
+function ready(){
+  const ok=!!face&&!!nameInput.value.trim()&&bg.complete&&bg.naturalWidth>0;
+  download.disabled=!ok;
+  if(jpg)jpg.disabled=!ok;
+}
+function loadFile(file){
+  if(!file)return;
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){
+    alertUser('Please choose JPG, PNG, or WebP image.');
+    return;
+  }
+  if(file.size>15*1024*1024){
+    alertUser('Image exceeds 15 MB. Please choose a smaller photo.');
+    return;
+  }
+  const url=URL.createObjectURL(file);
+  const img=new Image();
+  img.onload=()=>{
+    if(faceUrl)URL.revokeObjectURL(faceUrl);
+    faceUrl=url;
+    face=img;
+    scale=1;
+    offsetX=offsetY=0;
+    zoom.value='100';
+    zoomValue.textContent='100%';
+    tools.classList.add('show');
+    document.getElementById('uploadText').textContent='Photo Selected • Change Photo';
+    draw();
+    ready();
+  };
+  img.onerror=()=>{
+    URL.revokeObjectURL(url);
+    alertUser('Unable to read this image. Try another file.');
+  };
+  img.src=url;
+}
+photoInput.addEventListener('change',e=>loadFile(e.target.files?.[0]));
+nameInput.addEventListener('input',()=>{draw();ready()});
+zoom.addEventListener('input',()=>{scale=Number(zoom.value)/100;zoomValue.textContent=zoom.value+'%';draw()});
+document.getElementById('reset').onclick=()=>{scale=1;offsetX=offsetY=0;zoom.value=100;zoomValue.textContent='100%';draw()};
+document.getElementById('left').onclick=()=>{offsetX-=15;draw()};
+document.getElementById('right').onclick=()=>{offsetX+=15;draw()};
+document.getElementById('up').onclick=()=>{offsetY-=15;draw()};
+document.getElementById('down').onclick=()=>{offsetY+=15;draw()};
+const drop=document.getElementById('drop');
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));
+drop.addEventListener('drop',e=>loadFile(e.dataTransfer.files?.[0]));
+function point(e){
+  const r=canvas.getBoundingClientRect();
+  return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height};
+}
+canvas.addEventListener('pointerdown',e=>{
+  if(!face)return;
+  const p=point(e);
+  if(Math.hypot(p.x-circle.cx,p.y-circle.cy)>circle.r)return;
+  dragging=true;
+  dragPoint=p;
+  canvas.setPointerCapture(e.pointerId);
+});
+canvas.addEventListener('pointermove',e=>{
+  if(!dragging)return;
+  const p=point(e);
+  offsetX+=p.x-dragPoint.x;
+  offsetY+=p.y-dragPoint.y;
+  dragPoint=p;
+  draw();
+});
+['pointerup','pointercancel','lostpointercapture'].forEach(ev=>canvas.addEventListener(ev,()=>dragging=false));
+canvas.addEventListener('wheel',e=>{
+  if(!face)return;
+  e.preventDefault();
+  const n=Math.max(100,Math.min(300,Number(zoom.value)+(e.deltaY<0?5:-5)));
+  zoom.value=n;
+  scale=n/100;
+  zoomValue.textContent=n+'%';
+  draw();
+},{passive:false});
+function save(type){
+  if(!face||!nameInput.value.trim()){
+    alertUser('Please upload a photograph and enter your name.');
+    return;
+  }
+  draw();
+  const mime=type==='jpg'?'image/jpeg':'image/png';
+  canvas.toBlob(blob=>{
+    if(!blob){alertUser('Could not generate the poster.');return}
+    const url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;
+    a.download='Grand-151-Meeting-'+nameInput.value.trim().replace(/[^\p{L}\p{N}-]+/gu,'-').slice(0,40)+'.'+(type==='jpg'?'jpg':'png');
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+  },mime,type==='jpg'?0.95:undefined);
+}
+download.onclick=()=>save('png');
+if(jpg)jpg.onclick=()=>save('jpg');
+bg.onload=()=>{draw();ready()};
+bg.onerror=()=>alertUser('Missing template.jpg. Please keep index.html and template.jpg in the same folder.');
+draw();
+document.fonts?.ready?.then(()=>{fontReady=true;draw()});
 })();
 </script>
-</body></html>
+</body>
+</html>
